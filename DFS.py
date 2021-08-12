@@ -22,3 +22,18 @@ g.addEdge(2,0)
 g.addEdge(2,3)
 g.addEdge(3,3)
 g.DFS(2)
+
+
+#Another approach
+from collections import defaultdict
+def DFS(v,s):
+    v.add(s)
+    print(s,end=" ")
+    for i in g[s]:
+        if i not in v:
+            DFS(v,i)
+g=defaultdict(list)
+g={0:[1,2],1:[2],2:[0,3],3:[3]}
+s=2
+v=set()
+DFS(v,s)
